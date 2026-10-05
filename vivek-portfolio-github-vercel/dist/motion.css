@@ -1,0 +1,114 @@
+/* Quiet interaction layer shared by the portfolio pages. */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #d9ff3f;
+  outline-offset: 4px;
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .nav-links a,
+  .navlinks a,
+  .nav-back,
+  .back,
+  .reading a,
+  .jump a,
+  .project-link,
+  .quest-link,
+  .email,
+  .next a,
+  .cta a,
+  .footer a {
+    transition: color .24s ease, opacity .24s ease, border-color .24s ease;
+  }
+
+  .nav-links a,
+  .navlinks a,
+  .reading a,
+  .jump a {
+    position: relative;
+  }
+
+  .nav-links a::after,
+  .navlinks a::after,
+  .reading a::after,
+  .jump a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 100%;
+    bottom: -.25rem;
+    height: 1px;
+    background: currentColor;
+    transition: right .25s ease;
+  }
+
+  .nav-links a:hover::after,
+  .navlinks a:hover::after,
+  .reading a:hover::after,
+  .jump a:hover::after {
+    right: 0;
+  }
+
+  .btn,
+  .project-visual,
+  .beyond-card,
+  .personal-card,
+  .social-links a,
+  .socials a {
+    transition: transform .28s cubic-bezier(.2,.7,.2,1), box-shadow .28s ease, background-color .28s ease, color .28s ease;
+  }
+
+  .btn:hover,
+  .btn:focus-visible { transform: translateY(-3px); }
+  .project:hover .project-visual { transform: translateY(-5px); }
+  .project-visual img { transition: transform .5s cubic-bezier(.2,.7,.2,1); }
+  .project:hover .project-visual img { transform: scale(1.025); }
+  .beyond-card.visible:hover,
+  .personal-card:hover { transform: translateY(-3px); }
+  .social-links a:hover,
+  .socials a:hover { transform: translateY(-3px); }
+  .project-link:hover,
+  .quest-link:hover,
+  .email:hover { color: #1146e8; }
+  .contact .email:hover,
+  .footer .email:hover { color: #d9ff3f; }
+  .decision,
+  .problem-card,
+  .card,
+  .flow-step,
+  .detail,
+  .build-item,
+  .ride-gallery figure,
+  .community-photo {
+    transition: transform .28s ease, box-shadow .28s ease, background-color .28s ease;
+  }
+  .problem-card:hover,
+  .card:hover,
+  .flow-step:hover,
+  .build-item:hover,
+  .ride-gallery figure:hover,
+  .community-photo:hover { transform: translateY(-3px); }
+  .decision:hover { background: rgba(17,70,232,.035); }
+  .dark .decision:hover,
+  .decision-band .decision:hover { background: rgba(255,255,255,.05); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .motion-ready [data-motion] {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity .62s ease, transform .62s cubic-bezier(.2,.7,.2,1);
+  }
+  .motion-ready [data-motion].in-view {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
